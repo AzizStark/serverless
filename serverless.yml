@@ -1,0 +1,18 @@
+service: demo-sls
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:  
+  api:
+    handler: src/api/api.handler
+    events:
+      - http: GET /api
+  helloworld:
+    handler: src/helloworld.handler
+
+
+
+plugins:
+  - serverless-offline
